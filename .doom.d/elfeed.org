@@ -1,0 +1,27 @@
+#+TITLE: Elfeed
+
+* Blogs                                                                  :blogs:
+** Software Development                                                 :dev:
+*** Emacs                                                              :emacs:mustread:
+**** http://www.terminally-incoherent.com/blog/feed
+**** http://nullprogram.com/feed
+**** entry-title: \(emacs\|org-mode\)
+**** http://planet.emacsen.org/atom.xml
+*** Web Development                                                    :web:
+**** http://planet.phpunit.de/atom.xml
+**** http://feeds.feedburner.com/symfony/blog
+**** http://feeds.feedburner.com/qooxdoo/blog/content
+*** Personalities                                                      :personalities:
+https://lukesmith.xyz/rss.xml
+https://rooshv.com/feed
+* News
+** News Sites                                                           :news:mustread:
+*** http://feeds.feedburner.com/zerohedge/feed
+*** https://www.infowars.com/rss.xml
+** Security                                                             :security:
+*** https://hackernoon.com/feed
+*** http://krebsonsecurity.com/feed/
+*** https://www.reddit.com/r/hacking/
+** Linux                                                                :Linux:
+https://archlinux.org/feeds/news/
+* Videos

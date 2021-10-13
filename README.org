@@ -1,0 +1,213 @@
+#+TITLE: Master Setup
+
+* 1.0 Window Manager - BSPWM
+
+** 1.0 BSPWMRC
+*** The first part of this file dictates the initial programs which will start upon starting an X server
+*** Dictate which monitor is main, you can do this with arandr - this also dictates where the polybar bspwm module will go
+*** Lines 33 on dicate where applications will open, on which workspace and if intially floated, tiled, etc.
+
+** 1.1 Polybar
+*** Common Issues
+1. Make sure monitor is the correct name - as well as in the bspwm configuration.
+2. Make sure fonts are correctly set to correspond with the font numbers, and that you have them downloaded. Required for this configuration are:
+   - JetBrainsMono Nerd Font
+    https://aur.archlinux.org/packages/nerd-fonts-jetbrains-mono/
+   - ttf-weather-icons
+    https://aur.archlinux.org/packages/ttf-weather-icons/
+   - Sarasa Gothic
+    https://archlinux.org/packages/community/any/ttf-sarasa-gothic/
+   - Font Awesome
+    https://archlinux.org/packages/community/any/ttf-font-awesome/
+   - Material Icons
+    https://aur.archlinux.org/packages/ttf-material-design-icons/
+3. Make sure blueberry, bluez-utils, bluez are installed for bluetooth
+4. Identify wifi network with ip a command
+5. Get hwmon-path for temperature by running sensors or leave on zone 0 as default and comment out hwmon path
+
+** 1.2 Picom
+Default compositor. See dotfiles for blur effect using gaussian method.
+
+** 1.3 SXHKD
+Used for hotkey mapping.
+
+** 1.4 Dunst
+This will perform your default notification center tasks.
+
+** 1.5 Xinitrc
+
+xsetroot -cursor_name left_ptr
+spotify-listener &
+~/.config/polybar/launch.sh
+xrandr --output DP-0 --primary --mode 3840x2160 --pos 0x0 --rotate left --output DP-1 --off --output HDMI-0 --off --output DP-2 --off --output DP-3 --off --output HDMI-1 --off --output DP-4 --mode 3840x2160 --pos 2160x840 --rotate normal --output DP-5 --off
+dbus-update-activation-environment DISPLAY XAUTHORITY
+picom --experimental-backend &
+exec bspwm
+
+** 1.6 Generic Appearance Settings
+- lxappearance for setting gtk theme
+- breeze light mouse
+    https://aur.archlinux.org/packages/breeze-snow-cursor-theme/
+- Nordic GTK Theme
+    https://aur.archlinux.org/packages/nordic-theme/
+
+** 1.7 Rofi
+** Betterlockscreen
+** Pulseaudio
+** Bluez
+*** bluez-utils
+*** blueberry
+
+* 2.0 Terminal - Alacritty
+** 2.1 ZSH
+# Add to .zshrc
+SAVEHIST=1000  # Save most-recent 1000 lines
+HISTFILE=~/.zsh_history
+*** 2.11 p10k
+If you want to always see Archlinux logo regardless of your real OS, open ~/.p10k.zsh, search for POWERLEVEL9K_OS_ICON_CONTENT_EXPANSION and sets its value to $'\uF303'. Put %B before it if you want a bold icon. Add a space after it if it looks too tight in your prompt.
+
+If you want to see the icon of your real OS except when you are using Manjaro, define POWERLEVEL9K_LINUX_MANJARO_ICON=$'\uF303' in the same file.
+
+If you want to add extra icons to your prompt, define a custom segment:
+** 2.2 Neovim
+
+Make sure to install airline, airline themes
+
+pip install neovim
+
+# Fit airline issue in neovim
+" air-line
+let g:airline_powerline_fonts = 1
+
+if !exists('g:airline_symbols')
+    let g:airline_symbols = {}
+endif
+
+" unicode symbols
+let g:airline_left_sep = '»'
+let g:airline_left_sep = '▶'
+let g:airline_right_sep = '«'
+let g:airline_right_sep = '◀'
+let g:airline_symbols.linenr = '␊'
+let g:airline_symbols.linenr = '␤'
+let g:airline_symbols.linenr = '¶'
+let g:airline_symbols.branch = '⎇'
+let g:airline_symbols.paste = 'ρ'
+let g:airline_symbols.paste = 'Þ'
+let g:airline_symbols.paste = '∥'
+let g:airline_symbols.whitespace = 'Ξ'
+
+" airline symbols
+let g:airline_left_sep = ''
+let g:airline_left_alt_sep = ''
+let g:airline_right_sep = ''
+let g:airline_right_alt_sep = ''
+let g:airline_symbols.branch = ''
+let g:airline_symbols.readonly = ''
+let g:airline_symbols.linenr = ''
+
+** 2.3 Ranger
+*** ueberzug for image in terminal
+
+** 2.4 Yay AUR Helper and Pacman Settings
+- Enable Parallel Downloading
+    sudo nvim /etc/pacman.conf
+    ParallelDownloads = 5
+
+** 2.5 Neofetch
+** 2.6 Nitrogen
+
+
+* 3.0 GUI Applications
+** 3.1 Thunar File Manager
+** 3.2 GIMP
+** 3.3 Darktable
+** 3.4 Blender
+https://archlinux.org/packages/community/x86_64/blender/
+** 3.5 Ledger Live
+https://aur.archlinux.org/packages/ledger-live/
+** 3.6 Monero GUI
+https://archlinux.org/packages/community/x86_64/monero-gui/
+** 3.7 MongoDB Compass
+** 3.8 MPV and VLC
+** 3.9 OBS Studio
+** 3.10 Pomotroid
+** 3.11 Postman
+** 3.12 qBittorrent
+** 3.13 Zathura
+- Install Mupdf for zathura:
+    https://archlinux.org/packages/community/x86_64/zathura-pdf-mupdf/
+
+* 4.0 Browsers
+** 4.1 Brave
+** 4.2 Qutebrowser
+** 4.3 Tor Browser
+
+* 5.0 Programming Utilities
+** 5.1 Yarn
+** 5.2 NPM
+* Chatting
+** XMPP
+*** Gajim Client
+**** gajim-plugin-omemo
+https://aur.archlinux.org/packages/gajim-plugin-omemo/
+- for omemo encryption
+** Signal (signal-desktop-beta)
+** Element
+** Telegram
+* Password Store
+- Move over password file to new machine, as well as gpg key
+  gpg2 --import /path/to/secret.gpg
+- When saving passwords, make sure you use a directory as the site address, followed by username as the filename
+
+* Spotify
+** Spicetify
+yay spicetify-cli
+sudo chmod a+wr /opt/spotify
+sudo chmod a+wr /opt/spotify/Apps -R
+# Run
+spicetify
+spicetify backup apply enable-devtool
+
+** Spicetify Themes
+git clone https://github.com/morpheusthewhite/spicetify-themes.git
+cd spicetify-themes
+cp -r * ~/.config/spicetify/Themes
+spicetify config current_theme THEME_NAME
+spicetify apply
+
+** Spotify Listener (polybar module)
+* Doom Emacs
+** MU4E
+yay -S mu mbsync
+install msmtp
+yay -S mu-wizard-git
+
+
+
+
+
+
+
+
+
+
+
+
+
+* System Utilities
+** Htop and gotop
+** bluez bluez-utils and blueberry
+** xorg-xbacklight
+** redshift
+** Qbittorrent
+** ARANDR
+** Flameshot
+** thefuck
+https://archlinux.org/packages/community/any/thefuck/
+
+** Playerctl
+install from source, move to /usr file
+** Suse Imagewriter for iso writing
+** Firejail
+** Apparmor

@@ -1,0 +1,162 @@
+#######################################
+#       Basic BSPWM Controls          #
+#######################################
+
+# Reload sxhkd config files:
+super + Escape
+	pkill -USR1 -x sxhkd
+
+# Exit bspwm
+shift + alt + {q,r}
+	bspc {quit,wm -r}
+
+# Close and kill
+alt + q 
+	bspc node -{c,k}
+
+# Lock screen
+ctrl + alt + l 
+    betterlockscreen -l blur
+
+#######################################
+#         Movement Controls           #
+#######################################
+# Toggle Tiled and Monocle view
+alt + shift + space 
+	bspc desktop -l next
+
+# Focus on window
+alt + {h,j,k,l}
+	bspc node -f {west,south,north,east}
+
+# Focus/swap windows by direction
+alt + shift + {h,j,k,l}
+	bspc node --swap {west,south,north,east}
+
+# adjust gap size
+alt + {minus,equal}
+bspc config window_gap $((\bspc config window_gap` {-,+} 20))`
+
+# Expand tiled space
+super + shift + {h,j,k,l}
+	bspc node {@west -r -10 0,@south -r +10 0,@north -r -10 0,@east -r +10 0}
+
+# Contract the tiled space
+super + shift + {h,j,k,l}
+    bspc node {@east -r -10 0,@north -r +10 0,@south -r -10 0,@west -r +10 0}
+
+# Toggle fullscreen of window
+alt + shift + f
+	bspc node --state \~fullscreen
+
+# Focus next/previous desktop
+alt + {1,2,3,4,5,6,7,8,9} 
+	bspc desktop -f {1,2,3,4,5,6,7,8,9}
+
+# Send and focus to next desktop 
+alt + shift + {1,2,3,4,5,6,7,8,9} 
+	bspc node -d {1,2,3,4,5,6,7,8,9}
+
+# Preselect in direction:
+super + {h,j,k,l}
+	bspc node -p {west,south,north,east}
+
+# cancel Preselection
+super + ctrl + space
+    bspc node -p cancel
+
+# Swap the current node with the biggest node
+alt + b 
+    bspc node -s biggest.local
+
+# Set window state
+alt + {t, shift + t, s}
+    bspc node -t {tiled,pseudo_tiled,floating}
+
+#Volume Up
+ctrl + shift + Up
+    pactl -- set-sink-volume 0 +10%
+
+#Volume Down 
+ctrl + shift + Down
+    pactl -- set-sink-volume 0 -10%
+
+# Brightness Up
+XF86MonBrightnessUp
+# ctrl + Up
+    xbacklight -inc 10
+
+# Brightness Down
+XF86MonBrightnessDown
+# ctrl + Down 
+    xbacklight -dec 10
+#######################################
+#       Program Specific Controls     #
+#######################################
+
+# opens up Terminal
+alt + Return
+    alacritty	
+
+# Open up emacs
+alt + e
+    emacs
+
+# negative -w arg to account for a border width (default: 100%)
+alt + u 
+    ~/.config/bspwm/scratchy.sh
+
+# my homepage
+alt + y
+    brave joshblais.com &
+
+# run rofi and dmenu
+alt + space 
+    exec rofi -show drun
+
+# Rofi find files
+super + space 
+    exec rofi  -show find -modi find:~/.config/rofi/finder.sh;
+
+# opens up Terminal
+alt + w 
+    brave 
+
+# opens up Thunderbird
+alt + m 
+    thunderbird
+
+# Print Screen 
+alt + p 
+    flameshot gui 
+
+# Opens up Chromium 
+alt + c
+    qutebrowser 
+
+# Htop 
+alt + d 
+    htop
+
+# opens up Chat Programs 
+alt + i 
+    signal-desktop & telegram-desktop & element-desktop
+
+# opens up Audacity
+alt + a 
+    audacity 
+
+# opens up obs studio
+alt + o 
+    obs 
+
+# opens up gimp
+alt + g 
+    gimp 
+
+# open up Thunar
+alt + f 
+    thunar 
+
+
+
