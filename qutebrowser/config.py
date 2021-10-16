@@ -641,3 +641,6 @@ config.bind('<Ctrl+x><Ctrl+e>', 'spawn', "insert")
 # Binds for moving through completion items
 config.bind('<Ctrl-j>', 'completion-item-focus next', mode='command')
 config.bind('<Ctrl-k>', 'completion-item-focus prev', mode='command')
+
+# Set editior to nvim
+c.editor.command = ["alacritty", "-e", "nvim", "{}"]

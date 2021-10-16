@@ -12,14 +12,14 @@ fi
 export PATH="$PATH:/home/josh/Shared/Development/flutter/bin"
 
 # Path to your oh-my-zsh installation.
-export ZSH="/home/josh/.oh-my-zsh/"
+export ZSH="/home/josh/.oh-my-zsh"
 export EDITOR="nvim"
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 # ZSH_THEME="robbyrussell"
-# export PATH="Android/bin: $PATH"
+export PATH="Android/bin: $PATH"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -75,20 +75,28 @@ export EDITOR="nvim"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
   git
+  zsh-autosuggestions
+  zsh-syntax-highlighting
+  npm
+  zsh-interactive-cd
+  z
+  yarn
+  ufw
+  systemadmin
+  pass
+  minikube
+  kubectl
+  jsontools
+  emacs
+  docker
+  copybuffer
+  copydir
+  command-not-found
+  transfer
 )
 
-source $ZSH/oh-my-zsh.sh
+#source $ZSH/oh-my-zsh.sh
 
-# User configuration
-#Enable colors and change prompt:
-autoload -U colors && colors
-PS1="%B%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[blue]%}%M %{$fg[magenta]%}%~%{$fg[red]%}]%{$reset_color%}$%b "
-
-# powerline setup
-powerline-daemon -q
-. /usr/share/powerline/bindings/zsh/powerline.zsh
-
-# export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
@@ -112,23 +120,28 @@ powerline-daemon -q
 # For a full list of active aliases, run `alias`.
 #
 # better yaourt colors
-export YAOURT_COLORS="nb=1:pkg=1:ver=1;32:lver=1;45:installed=1;42:grp=1;34:od=1;41;5:votes=1;44:dsc=0:other=1;35"
+#export YAOURT_COLORS="nb=1:pkg=1:ver=1;32:lver=1;45:installed=1;42:grp=1;34:od=1;41;5:votes=1;44:dsc=0:other=1;35"
 
 # added by Anaconda3 installer
-export PATH="/home/josh/anaconda3/bin:$PATH"
+#export PATH="/home/josh/anaconda3/bin:$PATH"
 
 # autosuggestions
-source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+source ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+# zsh-interactive-cd
+source ~/.oh-my-zsh/plugins/zsh-interactive-cd/zsh-interactive-cd.plugin.zsh
+
+# zsh-syntax-highlighting
+source ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # path for GO
-export PATH="$PATH:$HOME/go/bin"
+# export PATH="$PATH:$HOME/go/bin"
 
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias p="sudo pacman"
 alias s='subl'
-alias y='yaourt'
 alias r='ranger'
 alias rrs='ranger Shared'
 alias nit='nitrogen ~/Pictures'
@@ -147,7 +160,6 @@ alias folder="thunar . &"
 alias revere="cd /mnt/TrueNAS/Revere"
 alias revereb="cd /mnt/TrueNAS/Revere/Revere\ LATEST/Brokerage"
 alias revsys="cd /mnt/TrueNAS/Revere/Revere\ LATEST/Systems"
-alias blog="cd /mnt/TrueNAS/Business/Personal\ Brand"
 alias body="cd ~/Shared/Documents/Body/"
 alias podcast="cd ~/Shared/Documents/Podcasts/"
 alias v="nvim"
@@ -156,19 +168,15 @@ alias nmlist="nmcli device wifi list"
 alias nmdelete="nmcli device delete"
 alias sd="spotifydl"
 alias nas="cd /mnt/TrueNAS"
+alias library="cd /mnt/TrueNAS/Library"
 alias syncnas="rsync -avz --delete /mnt/TrueNAS/ /mnt/External4TB/TrueNAS"
-alias mntexternal="sudo mount /dev/sdb1 /mnt/External4TB" 
+alias mntexternal="sudo mount /dev/sda1 /mnt/External4TB" 
 alias mntnas="sudo mount -t nfs -o soft,intr,bg 10.0.0.20:/mnt/Home/Homedata/josh /mnt/TrueNAS"
 alias startvpn="sudo systemctl start wg-quick@wg0"
 alias stopvpn="sudo systemctl stop wg-quick@wg0"
 alias doomsync="~/.emacs.d/bin/doom sync"
-alias sshrevere="ssh root@159.89.117.185"
 alias sshjosh="ssh root@159.203.18.59"
 alias reverecalc="cd /mnt/TrueNAS/Revere/Revere\ LATEST/Systems/Programs/Calculators && python ConveyancingOutput.py"
-alias revfold="thunar /mnt/TrueNAS/Revere/Revere\ LATEST" 
-alias Cibcpersonal="pass edit Personal/Finances/Banking/CIBC"
-alias Docusign="pass edit Business/Docusign"
-alias Upwork="pass edit Business/Upwork"
 
 bindkey -v
 bindkey -M viins 'kj' vi-cmd-mode
@@ -195,3 +203,5 @@ source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
 export PATH=$PATH:~/.config/bspwm
 
 eval $(thefuck --alias)
+SAVEHIST=1000  # Save most-recent 1000 lines
+HISTFILE=~/.zsh_history
