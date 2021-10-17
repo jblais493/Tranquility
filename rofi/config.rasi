@@ -14,16 +14,16 @@ configuration {
     display-combi:  "";
 }
 
-@import "./colors/simple.rasi"
+@import "./colors/nord.rasi"
+@theme "nord"
 
 window {
-    transparency:                   "real";
     background-color:               @bg;
     text-color:                     @fg;
-    border:			    0px;
-    border-color:		    @ac;
-    border-radius:                  5px;
-    width:			    40%;
+    border:			                2px;
+    border-color:		            #ffffff;
+    border-radius:                  1px;
+    width:			                30%;
     location:                       center;
     x-offset:                       0;
     y-offset:                       0;
@@ -61,7 +61,7 @@ inputbar {
 
 listview {
     cycle:                          true;
-    background-color:               @al;
+    background-color:               @bg;
     padding:                        10px;
     lines:                          10;
     spacing:                        0%;
@@ -70,17 +70,17 @@ listview {
 }
 
 mainbox {
-    background-color:               @al;
-    border:			    0% 0% 0% 0%;
-    border-radius:                  0% 0% 0% 0%;
-    border-color:		    @ac;
+    background-color:               @bg;
+    border:			                1; 
+    border-radius:                  1; 
+    border-color:		            @fg;
     children:                       [ inputbar, listview ];
     spacing:                        0%;
     padding:                        0%;
 }
 
 element {
-    background-color:               @al;
+    background-color:               @bg;
     text-color:                     @fg;
     orientation:                    horizontal;
     border-radius:                  0%;
@@ -88,8 +88,10 @@ element {
 }
 
 element-icon {
-    size:                           24px;
-    border:                         0px;
+    size:                           30px;
+    border:                         1px;
+    border-color:                   @fg;
+    background-color:               @bg;
 }
 
 element-text {
@@ -97,12 +99,16 @@ element-text {
     horizontal-align:               0;
     vertical-align:                 0.5;
     margin:                         0% 0.25% 0% 0.25%;
+    background-color:               @bg;
+    font:                           "JetBrainsMono Nerd Font 12";
+    color:                     @fg;
 }
 
 element selected {
-    background-color:               @ac;
-    text-color:                     @fg;
-    border:			    0% 0% 0% 0%;
-    border-radius:                  0px;
-    border-color:                   @bg;
+    background-color:               @bg;
+    font:                           "JetBrainsMono Nerd Font 12";
+    font-color:                     @fg;
+    border:			                5; 
+    border-radius:                  1px;
+    border-color:                   @ac;
 }
