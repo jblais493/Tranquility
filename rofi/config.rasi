@@ -3,13 +3,13 @@ configuration {
     show-icons          : true;
     drun-display-format : "{name}";
     disable-history     : false;
-    fullscreen          : false;
+    fullscreen          : true;
     columns             : 2;
     hide-scrollbar      : true;
     sidebar-mode        : false;
-    display-ssh:    "";
-    display-run:    "";
-    display-drun:   "";
+    display-ssh:    "ssh";
+    display-run:    "run";
+    display-drun:   "drun";
     display-window: "";
     display-combi:  "";
 }
@@ -20,24 +20,25 @@ configuration {
 window {
     background-color:               @bg;
     text-color:                     @fg;
-    border:			                2px;
+    border:			                0px;
     border-color:		            #ffffff;
     border-radius:                  1px;
-    width:			                30%;
+    width:			                40%;
+    height:			                0%;
     location:                       center;
     x-offset:                       0;
-    y-offset:                       0;
+    y-offset:                       2%;
 }
 
 prompt {
     enabled: 			    true;
     padding: 			    0.30% 1% 0% -0.5%;
-    background-color: 		    @al;
+    background-color: 		    @bf;
     text-color: 		    @fg;
 }
 
 entry {
-    background-color:               @al;
+    background-color:               @bf;
     text-color:                     @fg;
     placeholder-color:              @fg;
     expand:                         true;
@@ -49,12 +50,12 @@ entry {
 
 inputbar {
     children: 			    [ prompt, entry ];
-    background-color:               @bg;
+    background-color:               @bf;
     text-color:                     @bg;
     expand:                         false;
-    border:			    0% 0% 0% 0%;
-    border-radius:                  5px;
-    border-color:		    @ac;
+    border:			                0px; 
+    border-radius:                  2px;
+    border-color:		    @fg;
     margin:                         0% 0% 0% 0%;
     padding:                        1.5%;
 }
@@ -71,7 +72,7 @@ listview {
 
 mainbox {
     background-color:               @bg;
-    border:			                1; 
+    border:			                0; 
     border-radius:                  1; 
     border-color:		            @fg;
     children:                       [ inputbar, listview ];
@@ -88,8 +89,8 @@ element {
 }
 
 element-icon {
-    size:                           30px;
-    border:                         1px;
+    size:                           20px;
+    border:                         0;
     border-color:                   @fg;
     background-color:               @bg;
 }
@@ -100,15 +101,13 @@ element-text {
     vertical-align:                 0.5;
     margin:                         0% 0.25% 0% 0.25%;
     background-color:               @bg;
-    font:                           "JetBrainsMono Nerd Font 12";
     color:                     @fg;
 }
 
 element selected {
     background-color:               @bg;
-    font:                           "JetBrainsMono Nerd Font 12";
     font-color:                     @fg;
-    border:			                5; 
+    border:			                1px; 
     border-radius:                  1px;
-    border-color:                   @ac;
+    border-color:                   @fg;
 }

@@ -8,73 +8,63 @@
 ;   ██║     ╚██████╔╝███████╗██║   ██████╔╝██║  ██║██║  ██║
 ;   ╚═╝      ╚═════╝ ╚══════╝╚═╝   ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝
 ;
-;
-;   To learn more about how to configure Polybar
-;   go to https://github.com/polybar/polybar
-;
-;   The README contains a lot of information
-;
 ;==========================================================
 
 [colors]
 ;background = ${xrdb:color0:#222}
-;background = #0000000 
-background = #02e3440 
+background = #0000000 
 background-alt = #444
 ;foreground = ${xrdb:color7:#222}
-foreground = #eceff4 
+foreground = #ffffff 
 foreground-alt = #555
-primary = #ffffff
+primary = #000000
 secondary = #ffffff
 alert = #bd2c40
 
 [bar/example]
 monitor = ${env:MONITOR:DP-4}
-width = 99.7%
+width = 99.7% 
 height = 35
 offset-x = 6 
-offset-y = 5 
-radius = 0 
+offset-y = 10 
+radius = 1 
 fixed-center = true
-enable-ipc = true
+;enable-ipc = true
 
-background = #982e3440 
-;background = #00000000
-;foreground = #ffffff 
+background = #924c566a
 foreground = #eceff4 
 
-line-size = 3
-line-color = #f00
+;line-size = 3
+;line-color = #f00
 
 border-size = 2 
 border-color = #eceff4
 
-;padding-left = 2
-padding-right = 2
-margin-right = 5 
+padding-left = 0
+padding-right = 0 
 
-module-margin-left = 1
-module-margin-right = 1 
+module-margin-left = 0 
+module-margin-right = 0
 
+; WORKING FONTS
 ;font-0 = "NotoSansMono Light Nerd Font Complete":pixelsize=16;1
 ;font-0 = Saucecode Pro Nerd Font:style=semibold;pixelsize=20;1
 ;font-0 = Montserrat:style=Light:size=16;1
-font-0 = JetBrainsMono Nerd Font:style=semibold:pixelsize=18;3
-font-1 = Weather Icons:style=Regular:size=18;1
-font-2 = Sarasa Gothic HC:style=semibold:pixelsize=18;1
-font-3 = Font Awesome 5 Free:style=Regular:pixelsize=16;1
-font-4 = Font Awesome 5 Free:style=Solid:pixelsize=16;1
-font-5 = Font Awesome 5 Brands:style=Regular:pixelsize=16;1
-font-6 = Material Icons:style=Bold:pixelsize=18;1
+;font-7 = PowerlineSymbols:size=15;3
+font-0 = JetBrainsMono Nerd Font:style=regular:pixelsize=14;1
+font-1 = Weather Icons:style=Regular:size=14;1
+font-2 = Sarasa Gothic HC:style=semibold:pixelsize=14;1
+font-3 = Font Awesome 5 Free:style=Regular:pixelsize=14;1
+font-4 = Font Awesome 5 Free:style=Solid:pixelsize=14;1
+font-5 = Font Awesome 5 Brands:style=Regular:pixelsize=14;1
+font-6 = Material Icons:style=Regular:pixelsize=14;1
 
 modules-left = bspwm spotify
-modules-center = date
-;modules-center = mpd spotify previous playpause next date
-modules-right = weather memory temperature pulseaudio battery wlan bluetooth powermenu
+modules-center = date 
+modules-right = spc weather memory temperature pulseaudio wlan bluetooth battery powermenu
 
-
-tray-position = right
-tray-padding = 2
+tray-position = none
+tray-padding = 1 
 ;tray-background = #0063ff
 
 wm-restack = bspwm
@@ -98,7 +88,7 @@ label = %title:0:30:...%
 [module/bspwm]
 type = internal/bspwm
 
-label-font = 2
+format-font = 2 
 pin-workspaces = true
 inline-mode = false
 enable-click = true
@@ -120,10 +110,10 @@ label-dimmed-empty-foreground = #3a3c4e
 label-dimmed-empty-padding = 2
 
 label-focused = %icon%
-label-focused-foreground = #f8f8f2
-label-focused-background = #ea3a3c4e
+label-focused-foreground = #2e3440
+label-focused-background = #f8f8f2
 label-focused-underline = #ffffff
-label-focused-padding = 2
+label-focused-padding = 2 
 
 label-occupied = %icon%
 label-occupied-foreground = #ffffff
@@ -171,17 +161,21 @@ exec = ~/.config/polybar/scripts/bluetooth.sh
 interval = 2
 click-left = exec blueberry
 click-right = exec ~/.config/polybar/scripts/toggle_bluetooth.sh
-format-padding = 0 
-format-background = #982e3440
-format-foreground = #eceff4 
+format-padding = 1
+format-background = #2e3440
+format-foreground = #eceff4
 
 
 [module/weather]
 type = custom/script
 exec = ~/.config/polybar/polybar-forecast-linux-x86_64 
 exec-if = ping openweathermap.org -c 1
+click-left = exec ~/.config/polybar/scripts/weather.sh 
 interval = 600
 label-font = 2 
+format-background = #eceff4
+format-foreground = #2e3440
+format-padding = 1
 
 [module/mpd]
 type = internal/mpd
@@ -253,10 +247,13 @@ ramp-load-7 = █
 
 [module/memory]
 type = internal/memory
+format-font = 5
 interval = 2
-format-font = 5 
+format-padding = 1
 format-prefix = " "
 format-prefix-foreground = ${colors.secondary}
+format-prefix-background = #924c566a 
+label-background = #854c566a
 format = <label>
 label = %gb_used%
 
@@ -271,12 +268,15 @@ ramp-used-6 = ▇
 ramp-used-7 = █
 
 ramp-used-foreground = ${colors.secondary}
+ramp-used-background = #4c566a 
 
 
 [module/wlan]
 type = internal/network
 interface = wlp4s0
 interval = 3.0
+format-connected-background = #3b4252
+format-connected-padding = 1
 
 format-connected = <ramp-signal> <label-connected>
 
@@ -288,6 +288,7 @@ label-connected-foreground = #ffffff
 ; Default: (none)
 label-disconnected = not connected
 label-disconnected-foreground = #66ffffff
+format-disconnected-background = #3b4252
 
 ; Default: (none)
 ;label-packetloss = %essid%
@@ -295,18 +296,17 @@ label-disconnected-foreground = #66ffffff
 
 ; Only applies if <ramp-signal> is used
 ; 
-ramp-signal-0 = 
-ramp-signal-1 = 
-ramp-signal-2 = 
-ramp-signal-3 = 
-ramp-signal-4 = 
-ramp-signal-5 = 
-ramp-signal-6 = 
-ramp-signal-7 = 
+ramp-signal-0 =  
+ramp-signal-1 =  
+ramp-signal-2 =  
+ramp-signal-3 =  
+ramp-signal-4 =  
+ramp-signal-5 =  
+ramp-signal-6 =  
+ramp-signal-7 =  
 
 
-
-ramp-signal-foreground = ${colors.primary}
+ramp-signal-foreground = #eceff4 
 
 [module/eth]
 type = internal/network
@@ -332,7 +332,7 @@ date =
 ;date-alt = " %Y-%m-%d"
 date-alt = " %m-%d"
 
-time = %A, %d %B %Y | %H:%M
+time = %A, %d %B | %H:%M
 time-alt = %H:%M
 
 format-prefix = 
@@ -351,14 +351,20 @@ type = internal/pulseaudio
 ; Default: true
 use-ui-max = true
 
-format-volume = <ramp-volume> <label-volume>
+format-volume = <ramp-volume><label-volume>
 
 label-font = 6 
 label-volume = %percentage%%
+label-volume-padding = 1 
 label-volume-foreground = ${colors.foreground}
+label-volume-background = #434c5e
+format-ramp-volume-0-background = #434c5e
+format-ramp-volume-1-background = #434c5e
+format-ramp-volume-2-background = #434c5e
 
 label-muted = muted
 label-muted-foreground = ${colors.foreground}
+label-muted-background = #434c5e
 
 ; Only applies if <ramp-volume> is used
 ramp-volume-0 = 
@@ -366,68 +372,16 @@ ramp-volume-1 = 
 ramp-volume-2 = 
 
 ramp-volume-foreground = #ffffff 
-
-
-
-;[module/pulseaudio]
-;type = internal/pulseaudio
-;
-;format-volume = <label-volume> <bar-volume>
-;label-volume = VOL %percentage%%
-;label-volume-foreground = ${root.foreground}
-;
-;label-muted = 🔇 muted
-;label-muted-foreground = #666
-;
-;bar-volume-width = 10
-;bar-volume-foreground-0 = #55aa55
-;bar-volume-foreground-1 = #55aa55
-;bar-volume-foreground-2 = #55aa55
-;bar-volume-foreground-3 = #55aa55
-;bar-volume-foreground-4 = #55aa55
-;bar-volume-foreground-5 = #f5a70a
-;bar-volume-foreground-6 = #ff5555
-;bar-volume-gradient = false
-;bar-volume-indicator = |
-;bar-volume-indicator-font = 2
-;bar-volume-fill = ─
-;bar-volume-fill-font = 2
-;bar-volume-empty = ─
-;bar-volume-empty-font = 2
-;bar-volume-empty-foreground = ${colors.foreground-alt}
-
-[module/alsa]
-type = internal/alsa
-
-format-volume = <label-volume> <bar-volume>
-label-volume = VOL
-label-volume-foreground = ${root.foreground}
-
-format-muted-prefix = " "
-format-muted-foreground = ${colors.foreground-alt}
-label-muted = sound muted
-
-bar-volume-width = 10
-bar-volume-foreground-0 = #55aa55
-bar-volume-foreground-1 = #55aa55
-bar-volume-foreground-2 = #55aa55
-bar-volume-foreground-3 = #55aa55
-bar-volume-foreground-4 = #55aa55
-bar-volume-foreground-5 = #f5a70a
-bar-volume-foreground-6 = #ff5555
-bar-volume-gradient = false
-bar-volume-indicator = |
-bar-volume-indicator-font = 2
-bar-volume-fill = ─
-bar-volume-fill-font = 2
-bar-volume-empty = ─
-bar-volume-empty-font = 2
-bar-volume-empty-foreground = ${colors.foreground-alt}
-
-
+ramp-volume-background = #434c5e
 
 [module/battery]
 type = internal/battery
+format-charging-background = #2e3440
+format-full-background = #2e3440
+format-discharging-background = #2e3440
+format-charging-padding = 0 
+format-discharging-padding = 0
+format-full-padding = 0
 
 ; This is useful in case the battery never reports 100% charge
 full-at = 95
@@ -457,14 +411,14 @@ adapter = ADP1
 ;   <bar-capacity>
 ;   <ramp-capacity>
 ;   <animation-charging>
-format-charging = <animation-charging> <label-charging>
+format-charging = <animation-charging> <label-charging> | 
 
 ; Available tags:
 ;   <label-discharging> (default)
 ;   <bar-capacity>
 ;   <ramp-capacity>
 ;   <animation-discharging>
-format-discharging = <ramp-capacity> <label-discharging>
+format-discharging = <ramp-capacity> <label-discharging> | 
 ; label-discharging = %percentage%
 
 ; Available tags:
@@ -526,10 +480,10 @@ animation-discharging-framerate = 500
 
 [module/temperature]
 type = internal/temperature
-interval = 0.5
-;thermal-zone = 0
-warn-temperature = 65
-hwmon-path = /sys/class/hwmon/hwmon1/temp1_input
+thermal-zone = 0
+warn-temperature = 60
+format-background = #434c5e
+format-padding = 1
 
 ;<ramp>
 format = <label>
@@ -550,13 +504,17 @@ ramp-foreground = ${colors.foreground-alt}
 
 [module/powermenu]
 type = custom/menu
+format-background = #2e3440
+format-foreground = #bf616a
+format-padding = 2
+format-font = 5
 
 expand-right = true
 
-format-spacing = 1
+;format-spacing = 1
 
 label-open = 
-label-open-foreground = #fffff
+label-open-foreground = #e06c75
 label-close =  cancel
 label-close-foreground = #e06c75
 label-separator = |
@@ -577,34 +535,6 @@ menu-2-0-exec = sudo poweroff
 menu-2-1 = cancel
 menu-2-1-exec = menu-open-0
 
-;[module/powermenu]
-;type = custom/menu
-;
-;expand-right = true
-;
-;format-spacing = 1
-;
-;label-open = 
-;label-open-foreground = ${colors.secondary}
-;label-close =  cancel
-;label-close-foreground = ${colors.secondary}
-;label-separator = |
-;label-separator-foreground = ${colors.foreground-alt}
-;
-;menu-0-0 = reboot
-;menu-0-0-exec = menu-open-1
-;menu-0-1 = power off
-;menu-0-1-exec = menu-open-2
-;
-;menu-1-0 = cancel
-;menu-1-0-exec = menu-open-0
-;menu-1-1 = reboot
-;menu-1-1-exec = sudo reboot
-;
-;menu-2-0 = power off
-;menu-2-0-exec = sudo poweroff
-;menu-2-1 = cancel
-;menu-2-1-exec = menu-open-0
 
 [settings]
 screenchange-reload = true
@@ -620,53 +550,13 @@ margin-bottom = 0
 
 ; vim:ft=dosini
 
-[module/previous]
-format-font = 5
-type = custom/ipc
-; Default
-hook-0 = echo ""
-; When spotify active
-hook-1 = echo ""
-
-click-left = "spotifyctl -q previous"
-
-
-[module/next]
-format-font = 5
-type = custom/ipc
-; Default
-hook-0 = echo ""
-; When spotify active
-hook-1 = echo ""
-click-left = "spotifyctl -q next"
-
-
-[module/playpause]
-format-font = 5
-type = custom/ipc
-; Default
-hook-0 = echo ""
-; Playing
-hook-1 = echo ""
-; Paused
-hook-2 = echo ""
-
-click-left = "spotifyctl -q playpause"
-
-
-;[module/spotify]
-;format-font = 1
-;type = custom/ipc
-; Default
-;hook-0 = echo ""
-; Playing/paused show song name and artist
-;hook-1 = spotifyctl -q status --format '%artist%: %title%'
-
-;icon-prev = 
-;icon-stop = ""
-;icon-play = 
-;icon-pause = 
-;icon-next = 
+[module/spc]
+format-font = 4
+type = custom/text
+content = ""
+format-content-foreground = #4c566a
+format-content-background = #4c566a
+format-padding = 1
 
 [module/spotify]
 type = custom/script
@@ -674,7 +564,7 @@ interval = 1
 format-font = 5 
 format-prefix = " "
 format = <label>
-exec = python $HOME/.config/polybar/scripts/spotify_status.py -f '{artist}: {song}'
+exec = python ~/.config/polybar/scripts/spotify_status.py -f '{artist}: {song}'
 ;control players (optional)
 click-left = playerctl --player=spotify play-pause 
 click-right = playerctl --player=spotify next 
