@@ -53,15 +53,15 @@ module-margin-right = 0
 ;font-7 = PowerlineSymbols:size=15;3
 font-0 = JetBrainsMono Nerd Font:style=regular:pixelsize=14;1
 font-1 = Weather Icons:style=Regular:size=14;1
-font-2 = Sarasa Gothic HC:style=semibold:pixelsize=14;1
+font-2 = Sarasa Gothic HC:style=semibold:pixelsize=20;1
 font-3 = Font Awesome 5 Free:style=Regular:pixelsize=14;1
 font-4 = Font Awesome 5 Free:style=Solid:pixelsize=14;1
 font-5 = Font Awesome 5 Brands:style=Regular:pixelsize=14;1
 font-6 = Material Icons:style=Regular:pixelsize=14;1
 
-modules-left = bspwm spotify
+modules-left = bspwm 
 modules-center = date 
-modules-right = spc weather memory temperature pulseaudio wlan bluetooth battery powermenu
+modules-right = spotify spc weather memory temperature pulseaudio wlan bluetooth battery powermenu
 
 tray-position = none
 tray-padding = 1 
@@ -88,7 +88,7 @@ label = %title:0:30:...%
 [module/bspwm]
 type = internal/bspwm
 
-format-font = 2 
+format-font = 3 
 pin-workspaces = true
 inline-mode = false
 enable-click = true
@@ -103,30 +103,30 @@ label-dimmed-foreground = #ffffff
 
 label-dimmed-occupied = %icon%
 label-dimmed-occupied-foreground = #626483
-label-dimmed-occupied-padding = 2
+label-dimmed-occupied-padding = 4
 
 label-dimmed-empty = %icon%
 label-dimmed-empty-foreground = #3a3c4e
-label-dimmed-empty-padding = 2
+label-dimmed-empty-padding = 4 
 
 label-focused = %icon%
 label-focused-foreground = #2e3440
 label-focused-background = #f8f8f2
 label-focused-underline = #ffffff
-label-focused-padding = 2 
+label-focused-padding = 4 
 
 label-occupied = %icon%
 label-occupied-foreground = #ffffff
-label-occupied-padding = 2 
+label-occupied-padding = 4
 
 label-urgent = %icon%
 label-urgent-foreground = #f8f8f2
 label-urgent-background = #eaff5555
-label-urgent-padding = 2 
+label-urgent-padding = 4 
 
 label-empty = %icon%
 label-empty-foreground = #ffffff
-label-empty-padding = 2 
+label-empty-padding = 4 
 
 label-monocle = 
 label-monocle-foreground = #ffffff
