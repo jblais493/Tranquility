@@ -34,8 +34,12 @@ alt + shift + {h,j,k,l}
 	bspc node --swap {west,south,north,east}
 
 # adjust gap size
-alt + {minus,equal}
-bspc config window_gap $((\bspc config window_gap` {-,+} 20))`
+super + {equal,minus}
+  bspc config window_gap $(( $(bspc config window_gap) {-,+} 10 ))    
+
+# No gaps
+super + 0
+  bspc config window_gap 0
 
 # Expand tiled space
 super + shift + {h,j,k,l}
