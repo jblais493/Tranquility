@@ -632,8 +632,8 @@ config.bind(
     'config-cycle statusbar.show always never;; config-cycle tabs.show always never'
 )
 config.bind('pd', 'hint images spawn download ~/Downloads/Media')
-#config.bind('<Ctrl+=>', 'zoom-in')
-#config.bind('<Ctrl+->', 'zoom-out')
+config.bind('<Ctrl+k>', 'zoom-in', mode='normal')
+config.bind('<Ctrl+j>', 'zoom-out', mode='normal')
 config.bind('j', 'scroll-px 0 100')
 config.bind('k', 'scroll-px 0 -100')
 config.bind('<Ctrl+x><Ctrl+e>', 'spawn', "insert")
