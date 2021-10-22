@@ -176,6 +176,8 @@ alias startvpn="sudo systemctl start wg-quick@wg0"
 alias stopvpn="sudo systemctl stop wg-quick@wg0"
 alias doomsync="~/.emacs.d/bin/doom sync"
 alias reverecalc="cd /mnt/TrueNAS/Revere/Revere\ LATEST/Systems/Programs/Calculators && python ConveyancingOutput.py"
+alias record="arecord -f cd output.wav"
+alias sA="~/.config/scripts/scrotArea"
 
 bindkey -v
 bindkey -M viins 'kj' vi-cmd-mode
