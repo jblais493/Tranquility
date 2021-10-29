@@ -178,6 +178,7 @@ alias doomsync="~/.emacs.d/bin/doom sync"
 alias reverecalc="cd /mnt/TrueNAS/Revere/Revere\ LATEST/Systems/Programs/Calculators && python ConveyancingOutput.py"
 alias record="arecord -f cd output.wav"
 alias sA="~/.config/scripts/scrotArea"
+alias tsm="transmission-remote"
 
 bindkey -v
 bindkey -M viins 'kj' vi-cmd-mode
