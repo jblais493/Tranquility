@@ -21,6 +21,7 @@ ctrl + alt + l
 #######################################
 #         Movement Controls           #
 #######################################
+
 # Toggle Tiled and Monocle view
 alt + shift + space 
 	bspc desktop -l next
@@ -77,61 +78,33 @@ alt + b
 alt + {t, shift + t, s}
     bspc node -t {tiled,pseudo_tiled,floating}
 
+#######################################
+#       System Controls               #
+#######################################
+
 #Volume Up
-ctrl + shift + Up
+ctrl + shift + k
     pactl -- set-sink-volume 0 +10%
 
 #Volume Down 
-ctrl + shift + Down
+ctrl + shift + j 
     pactl -- set-sink-volume 0 -10%
-
-# Spotify Next
-ctrl + shift + l
-    playerctl --player=spotify next 
-
-# Spotify Previous
-ctrl + shift + h
-    playerctl --player=spotify previous 
-
 
 # Brightness Up
 XF86MonBrightnessUp
-# ctrl + Up
     xbacklight -inc 10
 
 # Brightness Down
 XF86MonBrightnessDown
-# ctrl + Down 
     xbacklight -dec 10
+
 #######################################
-#       Program Specific Controls     #
+#       Rofi Controls                 #
 #######################################
-
-# opens up Terminal
-alt + Return
-    alacritty	
-
-# Open up emacs
-alt + e
-    emacs
-
-# negative -w arg to account for a border width (default: 100%)
-alt + u 
-    ~/.config/bspwm/scratchy.sh
-
-# my homepage
-alt + y
-    brave joshblais.com &
-
-# ROFI COMMANDS
 
 # run rofi and dmenu
 alt + space 
     exec rofi -show drun
-
-# Rofi SSH 
-alt + shift + s 
-    exec rofi -show ssh
 
 # Run rofi pass
 alt + p
@@ -143,41 +116,55 @@ super + space
 
 # Rofi file browser in Revere
 alt + r
-    rofi -show file-browser-extended [ -file-browser-dir "/mnt/TrueNAS/Revere/Revere LATEST" ]
+    rofi -show file-browser-extended [ -file-browser-dir /mnt/TrueNAS/Revere/Revere LATEST ]
 
 # Rofi file browser in TrueNAS
 alt + n
     rofi -show file-browser-extended [ -file-browser-dir /mnt/TrueNAS ]
 
+#######################################
+#       Program Specific Controls     #
+#######################################
 
+# Terminal
+alt + Return
+    alacritty	
 
-# opens up Terminal
+# Emacs
+alt + e
+    emacs
+
+# my homepage
+alt + y
+    brave joshblais.com &
+
+# Brave 
 alt + w 
     brave 
 
-# opens up Thunderbird
+# Thunderbird
 alt + m 
     thunderbird
 
 # Print Screen 
 Print
-    scrot 
+    gnome-screenshot -i   
 
-# Opens up Chromium 
+# Qutebrowser
 alt + c
     qutebrowser 
 
 # Htop 
 alt + d 
-    htop
+    alacritty -e htop
 
 # opens up Chat Programs 
 alt + i 
-    signal-desktop
+    signal-desktop-beta
 
 # opens up Audacity
 alt + a 
-    audacity 
+    alacritty -e {arecord -f cd output.wav}
 
 # opens up obs studio
 alt + o 
@@ -191,5 +178,21 @@ alt + g
 alt + f 
     thunar 
 
-print
-   ~/.config/scripts/scrotArea
+#######################################
+#         PLAYER CONROLS              #
+#######################################
+
+# Spotify Next
+ctrl + shift + l
+    mpc next;\
+    playerctl --player=spotify next
+
+# Spotify Previous
+ctrl + shift + h
+    mpc prev;\
+    playerctl --player=spotify previous
+
+# Spotify pause
+ctrl + shift + p
+    mpc toggle;\
+    playerctl --player=spotify play-pause

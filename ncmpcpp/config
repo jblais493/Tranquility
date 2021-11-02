@@ -15,7 +15,7 @@ state_line_color =                      "magenta"
 # Progressbar
 progressbar_color =                     "black"
 progressbar_elapsed_color =             "red"
-progressbar_look =                      "━━╸"
+progressbar_look =                      "━━"
 
 # Visualizer
 visualizer_type =                       "spectrum"
