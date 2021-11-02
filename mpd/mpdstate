@@ -1,0 +1,35 @@
+sw_volume: 98
+audio_device_state:1:My Pulse Output
+audio_device_state:1:my_fifo
+state: stop
+current: 17
+random: 1
+repeat: 1
+single: 0
+consume: 0
+crossfade: 0
+mixrampdb: 0.000000
+mixrampdelay: -1.000000
+playlist_begin
+0:R&B/Usher/Usher - The REAL Greatest Hits 2-Disc (2010) -StudB-/Usher - The REAL Greatest Hits (2010) Disc 1 -StudB-/15. Usher - My Boo ft. Alicia Keys.mp3
+1:R&B/Usher/Usher - The REAL Greatest Hits 2-Disc (2010) -StudB-/Usher - The REAL Greatest Hits (2010) Disc 2 -StudB-/16. Usher - Slow Jams ft. Monica.mp3
+2:Country/Adam Sanders/Burnin' Roses - Adam Sanders.mp3
+3:Electronic/Afrojack/Bringin It Back - Afrojack.mp3
+4:Alternative/AFI/Endlessly She Said.mp3
+5:Electronic/TO FILE/Adventure Club ft. Krewella/Unknown Album/Rise & Fall.mp3
+6:Electronic/TO FILE/Above & Beyond ft. Richard Bedford/Unknown Album/Sun & Moon Marcus Schossow (Remix).mp3
+7:Electronic/Jason Ross/Jason Ross Essentials - Jason Ross/Alone Tonight - Jason Ross Remix - Above  Beyond.mp3
+8:Rock/Alter Bridge/Clear Horizon - Alter Bridge.mp3
+9:Rock/Alter Bridge/Tear Us Apart - Alter Bridge.mp3
+10:Rap/TO FILE/Belly/Unknown Album/I'm The Man (ft. Kurupt).mp3
+11:Rap/TO FILE/Belly/Unknown Album/Ridin feat. Mario Winans.mp3
+12:Electronic/TO FILE/Benny Benassi/Unknown Album/01 Cinema (Skrillex Remix).mp3
+13:Rap/TO FILE/Big Pun/Unknown Album/Still Not A Player (Dirty Version).mp3
+14:Rap/TO FILE/Big Sean/Unknown Album/Smoke 'N' Drive.mp3
+15:Rap/TO FILE/Biggie Smalls/Unknown Album/I Love The Dough.mp3
+16:Rap/TO FILE/Biggie Smalls/Unknown Album/Juicy.mp3
+17:Alternative/TO FILE/Billy Talent/Unknown Album/Try Honesty.mp3
+18:2000s/Black Eyed Peas/Unknown Album/Where Is The Love_.mp3
+19:Electronic/Zomboy/Unknown Album/City 2 City feat. Belle Humble.m4a
+20:Zion I/Unknown Album/Coastin'.mp3
+playlist_end
