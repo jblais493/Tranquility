@@ -217,7 +217,7 @@ c.tabs.show = 'always'
 
 # Setting default page for when opening new tabs or new windows with
 # commands like :open -t and :open -w .
-c.url.default_page = 'file://~/.surf/html/homepage.html'
+c.url.default_page = 'https://searx.labrynth.org'
 
 # Search engines which can be used via the address bar.  Maps a search
 # engine name (such as `DEFAULT`, or `ddg`) to a URL with a `{}`
@@ -632,6 +632,7 @@ config.bind(
     'config-cycle statusbar.show always never;; config-cycle tabs.show always never'
 )
 config.bind('pd', 'hint images spawn download ~/Downloads/Media')
+config.bind('Y', 'hint links yank')
 config.bind('<Ctrl+k>', 'zoom-in', mode='normal')
 config.bind('<Ctrl+j>', 'zoom-out', mode='normal')
 config.bind('j', 'scroll-px 0 100')
