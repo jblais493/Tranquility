@@ -161,7 +161,13 @@ c.content.blocking.adblock.lists = [
     'https://easylist.to/easylist/fanboy-social.txt',
     'https://secure.fanboy.co.nz/fanboy-annoyance.txt',
     'https://www.github.developerdan.com/hosts/lists/ads-and-tracking-extended.txt',
-    'https://raw.githubusercontent.com/mhhakim/pihole-blocklist/master/porn.txt'
+    'https://raw.githubusercontent.com/mhhakim/pihole-blocklist/master/porn.txt',
+    "https://github.com/uBlockOrigin/uAssets/raw/master/filters/annoyances.txt",
+    "https://github.com/uBlockOrigin/uAssets/raw/master/filters/filters-2020.txt",
+    "https://github.com/uBlockOrigin/uAssets/raw/master/filters/unbreak.txt",
+    "https://github.com/uBlockOrigin/uAssets/raw/master/filters/resource-abuse.txt",
+    "https://github.com/uBlockOrigin/uAssets/raw/master/filters/privacy.txt",
+    "https://github.com/uBlockOrigin/uAssets/raw/master/filters/filters.txt"
 ]
 
 # Password Management
@@ -193,6 +199,7 @@ config.set('content.javascript.enabled', True, 'qute://*/*')
 #   - ask
 config.set('content.notifications.enabled', True, 'https://www.reddit.com')
 
+config.set('content.autoplay', False)
 # Allow websites to show notifications.
 # Type: BoolAsk
 # Valid values:
@@ -238,7 +245,8 @@ c.url.default_page = 'https://searx.labrynth.org'
 # qutebrowser`.
 # Type: Dict
 c.url.searchengines = {
-    'DEFAULT': 'https://duckduckgo.com/?q={}',
+    # 'DEFAULT': 'https://duckduckgo.com/?q={}',
+    'DEFAULT': 'https://searx.labrynth.org/search?q={}',
     'am': 'https://www.amazon.ca/s?k={}',
     'aw': 'https://wiki.archlinux.org/?search={}',
     'goog': 'https://www.google.com/search?q={}',
