@@ -38,6 +38,13 @@ super + 0
 alt + {h,j,k,l}
 	bspc node -f {west,south,north,east}
 
+# Alt tab functionality
+alt + Tab
+    bspc node -f next.local
+
+alt + shift + Tab
+    bspc node -f prev.local
+
 # Focus/swap windows by direction
 alt + shift + {h,j,k,l}
 	bspc node --swap {west,south,north,east}
@@ -130,6 +137,11 @@ alt + n
 alt + Return
     alacritty	
 
+
+# Newsboat RSS Reader 
+alt + n
+    alacritty -e newsboat
+
 # Emacs
 alt + e
     emacs
@@ -160,11 +172,11 @@ alt + d
 
 # opens up Chat Programs 
 alt + i 
-    signal-desktop-beta
+    signal-desktop
 
 # opens up Audacity
 alt + a 
-    alacritty -e {arecord -f cd output.wav}
+    alacritty -e {arecord -f cd "/mnt/TrueNAS/Notes/Voice Memos/2021/November/output.wav"}
 
 # opens up obs studio
 alt + o 
@@ -184,15 +196,15 @@ alt + f
 
 # Spotify Next
 ctrl + shift + l
-    mpc next;\
-    playerctl --player=spotify next
+    playerctl --player=spotify next;\ 
+#    mpc next;
 
 # Spotify Previous
 ctrl + shift + h
-    mpc prev;\
-    playerctl --player=spotify previous
+    playerctl --player=spotify previous;\
+#    mpc prev;
 
 # Spotify pause
 ctrl + shift + p
-    mpc toggle;\
-    playerctl --player=spotify play-pause
+#    mpc toggle;\
+    playerctl --player=spotify play-pause; 
