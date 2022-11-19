@@ -15,7 +15,12 @@
      ("http://feeds.feedburner.com/breitbart")
      ("https://www.zdnet.com/topic/security/rss.xml")))
  '(org-agenda-files
-   '("/mnt/TrueNAS/org/today.org" "/mnt/TrueNAS/org/schedule.org" "/mnt/TrueNAS/org/habits.org" "/mnt/TrueNAS/org/Contacts.org" "/mnt/TrueNAS/org/archive.org" "/mnt/TrueNAS/org/bookmarks.org" "/mnt/TrueNAS/org/journal.org" "/mnt/TrueNAS/org/notes.org")))
+   '("/mnt/TrueNAS/org/dates.org" "/mnt/TrueNAS/org/Revere/closings.org" "/mnt/TrueNAS/org/journal.org" "/mnt/TrueNAS/org/notes.org"))
+ '(warning-suppress-types
+   '((org-element-cache)
+     (org-element-cache)
+     (defvaralias)
+     (org-mode-hook))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

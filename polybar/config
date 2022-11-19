@@ -11,11 +11,11 @@
 ;==========================================================
 
 [bar/example]
-monitor = ${env:MONITOR:DP-4}
-width = 99.7%
-height = 32 
-offset-x = 6 
-offset-y = 10 
+monitor = ${env:MONITOR:HDMI-0}
+width = 99.9%
+height = 35 
+offset-x = 3 
+offset-y = 3
 radius = 1 
 fixed-center = true
 enable-ipc = true
@@ -39,25 +39,25 @@ module-margin-right = 0
 ;            F O N T S 
 ;----------------------------------------------------------
 
-;font-0 = "NotoSansMono Light Nerd Font Complete":pixelsize=16;1
+;font-0 = "NotoSansMono Light Nerd Font Complete":pixelsize=13;1
 ;font-0 = Saucecode Pro Nerd Font:style=semibold;pixelsize=20;1
-;font-0 = Montserrat:style=Light:size=16;1
-font-0 = JetBrainsMono Nerd Font:style=regular:pixelsize=14;1
-font-1 = Weather Icons:style=Regular:size=14;1
-font-2 = Sarasa Gothic HC:style=semibold:pixelsize=16;1
-font-3 = Font Awesome 5 Free:style=Regular:pixelsize=14;1
-font-4 = Font Awesome 5 Free:style=Solid:pixelsize=14;1
-font-5 = Font Awesome 5 Brands:style=Regular:pixelsize=14;1
-font-6 = Material Icons:style=Regular:pixelsize=14;1
-font-7 = PowerlineSymbols:size=20;4
+font-0 = Montserrat:style=Light:size=13;1
+;font-0 = JetBrainsMono Nerd Font:style=regular:pixelsize=13;1
+font-1 = Weather Icons:style=Regular:size=13;1
+font-2 = Sarasa Gothic HC:style=semibold:pixelsize=15;1
+font-3 = Font Awesome 6 Free:style=Regular:pixelsize=13;1
+font-4 = Font Awesome 6 Free:style=Solid:pixelsize=13;1
+font-5 = Font Awesome 6 Brands:style=Regular:pixelsize=13;1
+font-6 = Material Icons:style=Regular:pixelsize=13;1
+font-7 = PowerlineSymbols:size=26;4
 
 ;----------------------------------------------------------
 ;            M O D U L E S
 ;----------------------------------------------------------
 
-modules-left = bspwm arrowright bspwmmode arrowright2 
+modules-left = bspwm arrowright bspwmmode arrowright2 mpd spotify
 modules-center = date 
-modules-right = spotify spc weather arrow1 memory temperature arrow2 pulseaudio wlan arrow3 bluetooth battery powermenu
+modules-right = spc weather arrow1 memory temperature arrow2 pulseaudio arrow3 eth bluetooth battery powermenu
 
 tray-position = none
 tray-padding = 1 
@@ -189,10 +189,10 @@ format-padding = 1
 [module/mpd]
 type = internal/mpd
 label-song-foreground = ${colors.primary}
-format-online =<icon-stop> <label-song>
+format-online =  <icon-stop> <label-song>
 
 icon-prev = 
-icon-stop = 
+icon-stop =  
 icon-play = 
 icon-pause = 
 icon-next = 
@@ -202,7 +202,7 @@ label-song-ellipsis = true
 
 ;[module/mpd]
 ;type = internal/mpd
-;format-online = <label-song>  <icon-prev> <icon-stop> <toggle> <icon-next>
+;format-online = <label-song> <icon-prev> <icon-stop> <toggle> <icon-next>
 ;
 ;icon-prev = 
 ;icon-stop = 
@@ -256,7 +256,7 @@ ramp-load-7 = █
 
 [module/memory]
 type = internal/memory
-format-font = 5
+format-font = 5 
 interval = 2
 format-padding = 1
 format-prefix = " "
@@ -282,7 +282,7 @@ ramp-used-background = #4c566a
 
 [module/wlan]
 type = internal/network
-interface = wlp4s0
+interface = enp5s0
 interval = 3.0
 format-connected-background = #3b4252
 format-connected-padding = 1
@@ -320,13 +320,13 @@ ramp-signal-foreground = #eceff4
 
 [module/eth]
 type = internal/network
-interface = enp0s25
+interface = enp5s0
 interval = 3.0
 
-format-connected-underline = #55aa55
-format-connected-prefix = " "
+format-connected-background = #2e3440
+format-connected-prefix = "   "
 format-connected-prefix-foreground = ${colors.foreground-alt}
-label-connected = %local_ip%
+label-connected = %local_ip% | 
 
 format-disconnected =
 ;format-disconnected = <label-disconnected>
@@ -340,10 +340,10 @@ interval = 1
 
 date =
 ;date-alt = " %Y-%m-%d"
-date-alt = " %m-%d"
+date-alt = " %d"
 
-time = %A, %d %B | %H:%M
-time-alt = %H:%M
+time = - %A, %d %B | %H:%M - 
+time-alt = - %H:%M -
 
 format-prefix = 
 format-prefix-foreground = ${colors.foreground-alt}
@@ -363,7 +363,7 @@ use-ui-max = true
 
 format-volume = <ramp-volume><label-volume>
 
-label-font = 6 
+label-font = 4 
 label-volume = %percentage%%
 label-volume-padding = 1 
 label-padding = 1
@@ -493,7 +493,7 @@ animation-discharging-framerate = 500
 [module/temperature]
 type = internal/temperature
 thermal-zone = 0
-warn-temperature = 60
+warn-temperature = 70 
 format-background = #004C566A
 format-padding = 1
 
@@ -614,3 +614,14 @@ type = custom/text
 content = "%{T8}%{T-}"
 content-foreground = #eceff4
 content-background = #004C566A
+
+[module/battery-combined-udev]
+type = custom/script
+exec = ~/.config/polybar/scripts/battery-combined-udev.sh
+tail = true
+format-charging-background = #2e3440
+format-full-background = #2e3440
+format-discharging-background = #2e3440
+format-charging-padding = 1
+;format-discharging-padding = 1 
+format-full-padding = 1 

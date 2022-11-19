@@ -43,6 +43,7 @@ else
   " source $HOME/.config/nvim/plug-config/easymotion.vim
 endif
 
+set termguicolors
 colorscheme nord
 let g:airline_theme='atomic' 
 " air-line

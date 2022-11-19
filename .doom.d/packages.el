@@ -20,7 +20,6 @@
 (package! elfeed-org)
 (package! ssh)
 (package! multiple-cursors)
-(package! org-mime)
 (package! org-super-agenda)
 (package! org-fancy-priorities)
 (package! theme-magic)
@@ -32,10 +31,26 @@
 (package! peep-dired)
 (package! dimmer)
 (package! beacon)
+(package! org-auto-tangle)
 (package! aggressive-indent)
 (package! powerthesaurus)
-(package! emacs-jabber)
-(package! mu4e)
+                                        ;(package! emacs-jabber)
+(package! emms)
+(package! minimap)
+(package! restclient)
+(package! flutter)
+(package! dart-mode)
+(package! lsp-dart)
+(package! go-mode)
+(package! lsp-tailwindcss :recipe (:host github :repo "merrickluo/lsp-tailwindcss"))
+;;(package! mu4e)
+
+(package! gitconfig-mode
+	  :recipe (:host github :repo "magit/git-modes"
+			 :files ("gitconfig-mode.el")))
+(package! gitignore-mode
+	  :recipe (:host github :repo "magit/git-modes"
+			 :files ("gitignore-mode.el")))
 
 ;; To install a package directly from a remote git repo, you must specify a
 ;; `:recipe'. You'll find documentation on what `:recipe' accepts here:

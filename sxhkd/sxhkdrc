@@ -113,6 +113,13 @@ XF86MonBrightnessDown
 alt + space 
     exec rofi -show drun
 
+alt + u
+    rofi -modi emoji -show emoji
+
+# Thunderbird
+alt + m
+    thunderbird
+
 # Run rofi pass
 alt + p
     rofi-pass
@@ -125,9 +132,12 @@ super + space
 alt + r
     rofi -show file-browser-extended [ -file-browser-dir /mnt/TrueNAS/Revere/Revere LATEST ]
 
-# Rofi file browser in TrueNAS
+alt + o 
+    alacritty -e fzf
+
+# Newsboat RSS Reader 
 alt + n
-    rofi -show file-browser-extended [ -file-browser-dir /mnt/TrueNAS ]
+    alacritty -e newsboat
 
 #######################################
 #       Program Specific Controls     #
@@ -135,28 +145,24 @@ alt + n
 
 # Terminal
 alt + Return
-    alacritty	
-
-
-# Newsboat RSS Reader 
-alt + n
-    alacritty -e newsboat
+    alacritty
 
 # Emacs
 alt + e
-    emacs
+    emacsclient -c -a 'emacs'
 
 # my homepage
 alt + y
     brave joshblais.com &
 
+# Morning Domains 
+alt + b
+    'firefox chess.com duolingo.com https://www.cibc.com/en/personal-banking.html https://www.rbcroyalbank.com/personal.html medium.com &'
+
 # Brave 
 alt + w 
     brave 
 
-# Thunderbird
-alt + m 
-    thunderbird
 
 # Print Screen 
 Print
@@ -166,21 +172,17 @@ Print
 alt + c
     qutebrowser 
 
-# Htop 
+# Gotop 
 alt + d 
-    alacritty -e htop
+    alacritty -e gotop
 
 # opens up Chat Programs 
 alt + i 
-    signal-desktop
+    signal-desktop & element-desktop
 
 # opens up Audacity
 alt + a 
-    alacritty -e {arecord -f cd "/mnt/TrueNAS/Notes/Voice Memos/2021/November/output.wav"}
-
-# opens up obs studio
-alt + o 
-    obs 
+    alacritty -e {arecord -f cd output.wav}
 
 # opens up gimp
 alt + g 
@@ -196,15 +198,15 @@ alt + f
 
 # Spotify Next
 ctrl + shift + l
-    playerctl --player=spotify next;\ 
-#    mpc next;
+    mpc next;\
+    playerctl --player=spotify next
 
 # Spotify Previous
 ctrl + shift + h
-    playerctl --player=spotify previous;\
-#    mpc prev;
+    mpc prev;\
+    playerctl --player=spotify previous
 
 # Spotify pause
 ctrl + shift + p
-#    mpc toggle;\
-    playerctl --player=spotify play-pause; 
+    mpc toggle;\
+    playerctl --player=spotify play-pause
